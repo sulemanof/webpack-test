@@ -1,9 +1,16 @@
-import { addKitty } from './addKitty';
-import { makeButton } from './button';
-import { sayHello } from './sayHello';
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-sayHello('world');
+const App = () => {
+  const a = 10;
+  const b = 20;
 
-document.body.appendChild(makeButton('моя кнопка'));
+  return (
+    <h1>
+      Hello from React world! Number:
+      {a + b}
+    </h1>
+  );
+};
 
-setTimeout(addKitty, 3000)
+ReactDOM.render(<App />, document.getElementById('root'));

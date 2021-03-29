@@ -1,8 +1,8 @@
 import kitty from './assets/kitty.jpg';
 
 export function addKitty() {
-    var myIcon = new Image();
-    myIcon.src = kitty;
+  const myIcon = new Image();
+  myIcon.src = kitty;
 
-    document.body.appendChild(myIcon);
+  document.body.appendChild(myIcon);
 }

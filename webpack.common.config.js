@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const webpack = require('webpack');
 
 module.exports = {
     entry: './src/index.js',
@@ -8,8 +9,6 @@ module.exports = {
         filename: 'bundle.js',
         path: path.resolve(__dirname, 'dist')
     },
-    devtool: 'inline-source-map',
-    mode: 'development',
     module: {
         rules: [{
                 test: /\.css$/,
@@ -34,6 +33,16 @@ module.exports = {
                         limit: true,
                     },
                 }, ],
+            },
+            {
+                test: /\.(js|jsx)$/,
+                exclude: /node_modules/, //don't test node_modules folder
+                use: {
+                    loader: "babel-loader",
+                },
+                resolve: {
+                    extensions: [".js", ".jsx"],
+                },
             },
         ]
     },
